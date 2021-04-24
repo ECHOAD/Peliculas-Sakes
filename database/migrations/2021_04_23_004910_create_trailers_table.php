@@ -15,11 +15,12 @@ class CreateTrailersTable extends Migration
     {
         Schema::create('trailers', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre')->unique();
+            $table->string('titulo')->unique();
             $table->string('url')->unique();
             $table->string('genero');
-            $table->text('description');
+            $table->text('descripcion');
             $table->double('puntuacion');
+            $table->string('portada');
             $table->timestamps();
         });
     }

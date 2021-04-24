@@ -1,64 +1,35 @@
-.mainform {
-    width: 960px;
-    margin: 20px auto;
-    padding-top: 20px;
-    font-family: 'Fauna One', serif;
-    display: block;
+#form {
+    width: 100px;
+    padding-left: 10px;
+    height: auto;
 }
 
-#popup {
-    padding-top: 80px;
+#form p {
+    text-align: center;
 }
 
-.form {
-    border-radius: 2px;
-    padding: 20px 30px;
-    box-shadow: 0 0 15px;
-    font-size: 14px;
-    font-weight: bold;
-    width: 100%;
-    margin: 20px 250px 0 35px;
-    float: left;
+#form label {
+    font-size: 20px;
 }
 
-.contactdiv {
-    opacity: 0.92;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.486);
+#form input[type="radio"] {
     display: none;
 }
 
-#login,
-#contact {
-    width: 350px;
-    text-align: center;
-    margin: 0;
-    background-color: white;
-    font-family: 'Fauna One', serif;
-    position: relative;
-    border: 5px solid rgb(13, 9, 49);
+#form label {
+    color: grey;
 }
 
-.img {
-    float: right;
-    margin-top: -35px;
-    margin-right: -37px;
+#form.clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
 }
 
-#contact {
-    left: 50%;
-    top: 50%;
-    margin-left: -210px;
-    margin-top: -255px;
+#form label:hover,
+#form label:hover~label {
+    color: orange;
 }
 
-#login {
-    left: 50%;
-    top: 50%;
-    margin-left: -210px;
-    margin-top: -158px;
+#form input[type="radio"]:checked~label {
+    color: orange;
 }
