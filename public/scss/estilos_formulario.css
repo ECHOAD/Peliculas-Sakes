@@ -28,7 +28,8 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(190, 51, 51, 0.486);
+    background: rgba(0, 0, 0, 0.486);
+    display: none;
 }
 
 #login,
@@ -39,7 +40,7 @@
     background-color: white;
     font-family: 'Fauna One', serif;
     position: relative;
-    border: 5px solid rgb(245, 245, 245);
+    border: 5px solid rgb(13, 9, 49);
 }
 
 .img {
