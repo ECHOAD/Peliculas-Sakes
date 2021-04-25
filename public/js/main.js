@@ -28,14 +28,8 @@ const showMenu = (toggleId, navbarId, mainId) => {
 showMenu('nav-toggle', 'navbar', 'main')
 
 // LINK ACTIVE COLOR
-const linkColor = document.querySelectorAll('.nav__link');
 
-function colorLink() {
-    linkColor.forEach(l => l.classList.remove('active'));
-    this.classList.add('active');
-}
 
-linkColor.forEach(l => l.addEventListener('click', colorLink));
 
 var swiper = new Swiper('.swiper-container', {
     slidesPerView: 4,

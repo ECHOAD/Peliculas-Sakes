@@ -93,7 +93,9 @@
 
 
                                         <div class="descriptions">
-                                            <h1>{{ $triler->titulo }}</h1>
+                                            <h4 class="display-8">{{ $triler->titulo }}</h4>
+                                            <small>{{ $triler->genero }}</small>
+                                            <br>
 
 
 
@@ -103,6 +105,7 @@
                                             </p>
 
 
+                                            
                                             <button class="btn btn-primary">Editar</button>
 
                                             <button class="btn btn-danger">Borrar</button>
@@ -127,7 +130,7 @@
 
 
                                     <div class="descriptions">
-                                        <h1 class="display-3">
+                                        <h1 class="display-6">
                                             No hay peliculas
                                         </h1>
 
@@ -136,7 +139,7 @@
 
 
 
-                                        <button class="btn btn-primary" style="right: 25% !important">Agregar</button>
+                                        <button class="btn btn-primary" >Agregar</button>
 
 
 

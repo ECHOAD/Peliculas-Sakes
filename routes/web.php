@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/','HomeController')->name('trailers.home');
+Route::get('/Home','HomeController')->name('home');
 
 
 Route::resource('trailers', 'TrailerController');
