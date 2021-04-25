@@ -78,131 +78,84 @@
 
                     <div class="row col-rows-4">
 
-                        
+
 
                         @forelse ( $trilers as $triler )
 
-                        <div class="col-12 col-md-4 m4 m-md-5 m-lg-0 pt-4">
-                            <h4 class="titulo">{{ $triler->titulo }}</h1>
+                            <div class=" offset-2 col-8  col-md-3 m4 m-md-5 m-lg-0 pt-4">
+                                <h4 class="titulo">{{ $triler->titulo }} | ★{{ $triler->puntuacion }}</label> </h1>
 
-                            <div class="card">
-                               
-                                <img src="/storage/{{ $triler->portada }}">
-                                
+                                    <div class="card">
 
-
-                                <div class="descriptions">
-                                    <h1>{{ $triler->titulo }}</h1>
-                                    <label>{{ $triler->puntuacion }}★</label>
-                                    <br>
+                                        <img src="/storage/{{ $triler->portada }}">
 
 
-                                    <strong class="align-center">Descripcion</strong>
-                                    <p>
-                                       {{ $triler->descripcion}}
-                                    </p>
-                                    <div class="form-action">
-    
-                                        <button class="btn btn-primary">Editar</button>
-        
-                                        <button class="btn btn-danger">Borrar</button>
+
+
+                                        <div class="descriptions">
+                                            <h1>{{ $triler->titulo }}</h1>
+
+
+
+                                            <strong class="align-center">Descripcion</strong>
+                                            <p>
+                                                {{ $triler->descripcion }}
+                                            </p>
+
+
+                                            <button class="btn btn-primary">Editar</button>
+
+                                            <button class="btn btn-danger">Borrar</button>
+
+                                        </div>
+                                    </div>
+                            </div>
+
+
+
+                        @empty
+
+                            <div class=" offset-2 col-8  col-md-3 m4 m-md-5 m-lg-0 pt-4">
+
+
+                                <div class="card">
+
+                                    <img
+                                        src="https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80">
+
+
+
+
+                                    <div class="descriptions">
+                                        <h1 class="display-3">
+                                            No hay peliculas
+                                        </h1>
+
+
+
+
+
+
+                                        <button class="btn btn-primary" style="right: 25% !important">Agregar</button>
+
+
+
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
 
-                            
-                        @empty
-                            
                         @endforelse
-                
-                        
-     
 
-              
+
+
+
+
 
 
 
 
                     </div>
-                    
-
-                    
-                            
-
-
-                       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        {{-- <div class="row">
-              
-              
-                {{-- @forelse ( $trilers as $triler )
-
-                
-                <div class=" col-6 col-sm-12 col-md-6 col-lg-3  bg-white mt-4  rounded "> 
-                    
-                    <div >
-                        <img  class=" img-card rounded" src="/storage/{{ $triler->portada }}">
-                    </div>
-
-                    
-                    <div class="col-4">
-    
-                        <div>
-
-                            <div class="form-group">
-                                <label class="col-form-label"> <h5 class="title-card">Titulo</h5>
-                                <p><strong>{{ $triler->titulo }}</strong></p>
-                            </div>
-            
-                            <div class="form-group">
-                                <label class="col-form-label"> <h5 class="title-card">Link del trailer</></h5>
-                                <p><strong>{{ $triler->genero }}</strong></p>
-                            </div>
-            
-                            <div class="form-group">
-                                <label class="col-form-label"> <h5 class="title-card">Genero</h5>
-                                <p><strong>{{ $triler->titulo }}</strong></p>
-                            </div>
-            
-                            <div class="form-group">
-                                <label class="col-form-label"> <h5 class="title-card">Accciones</h5>
-                                <div class="form-action">
-    
-                                    <button class="btn btn-primary">Editar</button>
-    
-                                    <button class="btn btn-danger">Borrar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-                    
-                @empty
-                    
-                @endforelse --}}
-
-
-                   
-
 
 
         </main>

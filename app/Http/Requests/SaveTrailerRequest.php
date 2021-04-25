@@ -28,7 +28,7 @@ class SaveTrailerRequest extends FormRequest
             'titulo'=>'required|max:30',
             'url'=>'required',
             'genero'=>'required',
-            'descripcion'=>'max:150',
+            'descripcion'=>'max:250',
             'portada'=>'required'
 
 
@@ -45,7 +45,7 @@ class SaveTrailerRequest extends FormRequest
 
             'url.required'=>'El link del trailer es obligatorio',
            
-            'descripcion.max'=>'La descripcion es demasiada extensa. El limite es 150 carácteres',
+            'descripcion.max'=>'La descripcion es demasiada extensa. El limite es 250 carácteres',
 
             'portada.required'=>'Se necesita una portada para la pelicula'
          
