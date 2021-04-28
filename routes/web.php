@@ -15,9 +15,33 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/Home','HomeController')->name('home');
 
 
+Route::get('/trailers/filtrar/','TrailerController@filtrar')->name('trailers.filtrar');
 Route::resource('trailers', 'TrailerController');
 
 
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
+Route::get('/filtrar/','HomeController@filtrar')->name('home.filtrar');
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/', 'HomeController@index')->name('home');

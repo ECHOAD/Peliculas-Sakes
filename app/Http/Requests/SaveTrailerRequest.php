@@ -28,7 +28,7 @@ class SaveTrailerRequest extends FormRequest
             'titulo'=>'required|max:30',
             'url'=>'required',
             'genero'=>'required',
-            'descripcion'=>'max:250',
+            'descripcion'=>'max:150',
             'portada'=>'required'
 
 

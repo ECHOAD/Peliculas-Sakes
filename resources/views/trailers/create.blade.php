@@ -13,7 +13,12 @@
             <main id="main">
                 <form class="border border-light bg-white p-5"  method="POST" action="{{ route('trailers.store')}}"  enctype="multipart/form-data" >
                     @csrf
-                    @include('trailers._Form')
+                    @include('trailers._Form',['btnText'=>'Agregar','requerido'=>'required'])
+                    
+                    
+
+                  
+                
                 </form>
 
             </main>

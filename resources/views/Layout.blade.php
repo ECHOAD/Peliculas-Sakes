@@ -18,6 +18,9 @@
     
 
     <title>@yield('title','SAKE Peliculas')</title>
+
+
+    <link rel="stylesheet" href="{{ asset('css/venobox.css') }}" type="text/css" media="screen" />
 </head>
 <body>
 
@@ -30,18 +33,29 @@
    
 
 
-   <script src="{{ asset('js/jquery-3.5.1.min.js')}}"></script>
+   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+   <script type="text/javascript" src="{{ asset('js/venobox.min.js')}}"></script>
    <script src="{{ asset('js/popper.min.js')}}"></script>
    <script src="{{ asset('js/bootstrap.min.js')}}"></script>
    <script src="{{ asset('https://unpkg.com/swiper/swiper-bundle.js')}}"></script>
    <script src="{{ asset('https://unpkg.com/swiper/swiper-bundle.min.js')}}"></script>
-   <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js')}}"></script>
    <script src="{{ asset('js/main.js')}}"></script>
-   <script src="{{ asset('js/Form_Trailers.js')}}"></script>
- 
 
-
-   
 
 </body>
+
+
 </html>
+
+
+<script>
+
+$(document).ready(function(){
+    $('.venobox').venobox({
+      spinColor: '#black',
+      autoplay: 'true',
+      spinner: 'spinner-pulse',
+      titleColor: 'white',
+    }); 
+});
+</script>

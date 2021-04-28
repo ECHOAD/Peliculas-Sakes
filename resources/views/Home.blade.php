@@ -16,161 +16,140 @@
 
             <div class="row">
 
+                <div class="col-12 mt-5">
 
-                <div class="col-3">
+                    <div class="container">
+                        <form action="{{ route('home.filtrar') }}" method="get">
+                            @csrf
+                            <input name="titulo" type="text" class="form-control search"
+                                placeholder="BUSCAR EX. HARRY POTER" aria-label="Recipient's username"
+                                aria-describedby="basic-addon2 ">
+                            <div class="input-group-append">
 
-                    <section class="wrapper">
-
-                        <!-- BEGIN: menu -->
-                  
-                        <!-- END: menu -->
-        
-                        <!-- BEGIN: cards -->
-                        <div class="cards" data-effect="zoom">
-                            <button class="cards__save  js-save" type="button">
-                                <i class="fa  fa-bookmark"></i>
-                            </button>
-                            <figure class="cards__image">
-                                <img src="https://c1.staticflickr.com/4/3935/32253842574_d3d449ab86_c.jpg" alt="Short description">
-                            </figure>
-                            <div class="cards__body">
-                                <h3 class="cards__name">Neil Armstrong</h3>
                             </div>
-                            <div class="cards__footer">
-                                <p class="cards__date">Feb 10 2018</p>
-                                <p class=""></p>
-                            </div>
-                        </div>
-                        <!-- END: cards -->
-        
-                    </section>
+                        </form>
+                    </div>
 
 
-
-                    
                 </div>
 
-                <div class="col-3">
 
-                    <section class="wrapper">
+                @forelse ( $trailers as $trailer )
 
-                        <!-- BEGIN: menu -->
-                  
-                        <!-- END: menu -->
-        
-                        <!-- BEGIN: cards -->
-                        <div class="cards" data-effect="zoom">
-                            <button class="cards__save  js-save" type="button">
-                                <i class="fa  fa-bookmark"></i>
-                            </button>
-                            <figure class="cards__image">
-                                <img src="https://c1.staticflickr.com/4/3935/32253842574_d3d449ab86_c.jpg" alt="Short description">
-                            </figure>
-                            <div class="cards__body">
-                                <h3 class="cards__name">Neil Armstrong</h3>
-                            </div>
-                            <div class="cards__footer">
-                                <p class="cards__date">Feb 10 2018</p>
-                                <p class=""></p>
-                            </div>
-                        </div>
-                        <!-- END: cards -->
-        
-                    </section>
+                    <div class="col-12 col-md-6 col-lg-3 mt-5">
 
+                        <div class="container">
 
-
-                    
-                </div>
-
-                <div class="col-3">
-
-                    <section class="wrapper">
-
-                        <!-- BEGIN: menu -->
-                  
-                        <!-- END: menu -->
-        
-                        <!-- BEGIN: cards -->
-                        <div class="cards" data-effect="zoom">
-                            <button class="cards__save  js-save" type="button">
-                                <i class="fa  fa-bookmark"></i>
-                            </button>
-                            <figure class="cards__image">
-                                <img src="https://c1.staticflickr.com/4/3935/32253842574_d3d449ab86_c.jpg" alt="Short description">
-                            </figure>
-                            <div class="cards__body">
-                                <h3 class="cards__name">Neil Armstrong</h3>
-                            </div>
-                            <div class="cards__footer">
-                                <p class="cards__date">Feb 10 2018</p>
-                                <p class=""></p>
-                            </div>
-                        </div>
-                        <!-- END: cards -->
-        
-                    </section>
-
-
-
-                    
-                </div>
-
-                <div class="col-3">
-
-                    <section class="wrapper">
-
-                        <!-- BEGIN: menu -->
-                  
-                        <!-- END: menu -->
-        
-                        <!-- BEGIN: cards -->
-                        <div class="cards" data-effect="zoom">
-                            <button class="cards__save  js-save" type="button">
-                                <i class="fa  fa-bookmark"></i>
-                            </button>
-                            <figure class="cards__image">
-                                <img src="{{ asset('img/3.png') }}" alt="Short description">
-                            </figure>
-                            <div class="cards__body">
-                                <h3 class="cards__name">Neil Armstrong</h3>
-                            </div>
-                            <div class="cards__footer">
-                                <p class="cards__date">Feb 10 2018</p>
-
-                                <button class="btn bg-danger" >
-                                    <span class="iconify" data-icon="bx-bxl-youtube" data-inline="false">Trailer</span>
+                            <div class="row">
+                                <!-- BEGIN: cards -->
+                                <h3 class="text-white">{{ $trailer->titulo }}|★{{ $trailer->puntuacion }} </h3>
+                                <div class="cards" data-effect="zoom">
                                     
-                                
-                                </button>
+                                    <button class="cards__save  js-save" type="button">
+                                        <i class="fa  fa-bookmark"></i>
+                                    </button>
+                                    <figure class="cards__image">
+                                        <img src="storage/{{ $trailer->portada }}" alt="Short description">
+                                    </figure>
+                               
+                                    <div class="cards__footer">
 
-                                <p class=""></p>
+
+
+                                        <div class="container">
+
+                                            <div class="row">
+
+
+
+                                                <div class="col-12">
+                                                    <p class="cards__date text-black"> Añadido:<br>
+                                                        {{ $trailer->created_at->diffForHumans() }}</p>
+
+
+                                                </div>
+
+                                                <div class="col-12 p-4">
+
+                                              
+
+
+                                                </div>
+
+                                                <div class="col-12">
+
+                                                   <strong>Descripcion</strong>
+                                                    <br>
+
+                                                    <p class="text-white">{{ $trailer->descripcion }}</p>
+                                                </div>
+
+                                                <div class="col-12">
+
+                                                    <p class="text-center mt-5">
+                                                        <a class="venobox btn btn-danger" title="{{ $trailer->titulo }}"
+                                                            data-vbtype="video" data-overlay="rgba(0, 0, 0, 0.747)"
+                                                            href="{{ $trailer->url }}">
+                                                            
+                                                            <i class='bx bxl-youtube'></i>
+
+                                                            Trailer
+                                                        
+                                                        </a>
+                                                    </p>
+
+                                                </div>
+
+
+
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                        <!-- END: cards -->
-        
-                    </section>
+                    </div>
+
+
+                @empty
+
+
+                    <div class="col-12 col-md-6 col-lg-3 mt-5">
+
+                        <div class="container">
+
+
+                            <div class="row">
+                                <!-- BEGIN: cards -->
+                                <div class="cards" data-effect="zoom">
+                                    <button class="cards__save  js-save" type="button">
+                                        <i class="fa  fa-bookmark"></i>
+                                    </button>
+                                    <figure class="cards__image">
+                                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                                            alt="Short description">
+                                    </figure>
+
+                                    <div class="cards__footer">
 
 
 
-                    
-                </div>
+                                        <p>UPS :S, no hay peliculas registradas </p>
 
-        
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
-
-
+                @endforelse
             </div>
-
-            
-
-
-
-
-
-
-        </div>
 
 
 
@@ -183,3 +162,7 @@
 
 
 @endsection
+
+
+
+

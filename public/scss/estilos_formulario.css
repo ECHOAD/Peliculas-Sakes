@@ -33,3 +33,7 @@
 #form input[type="radio"]:checked~label {
     color: orange;
 }
+
+#upload-file {
+    align-items: center;
+}

@@ -4,6 +4,9 @@
 
               @include('partials.errors_forms')
 
+
+              
+
                 <h2 class="display-6 text-center mb-4">Crear Peliculas</h2>
 
                 <div class="container">
@@ -15,23 +18,23 @@
                       <div class="form-group">
 
                         <label for="puntuacion"> Calificacion</label>
-                        <p class="clasificacion" id="form" value="{{ old('puntuacion' ,$trailer->puntuacion) }}">
-                          <input id="radio1" type="radio" name="puntuacion" value="5"><!--
+                        <p class="clasificacion" id="form" ">
+                          <input id="radio1" type="radio" name="puntuacion" value="5"  {{ (old('puntuacion',$trailer->puntuacion) == "5") ? "checked" : ""}}><!--
                           --><label for="radio1">★</label><!--
-                          --><input id="radio2" type="radio" name="puntuacion" value="4"><!--
+                          --><input id="radio2" type="radio" name="puntuacion" value="4"  {{ (old('puntuacion',$trailer->puntuacion) == "4") ? "checked" : ""}}><!--
                           --><label for="radio2">★</label><!--
-                          --><input id="radio3" type="radio" name="puntuacion" value="3"><!--
+                          --><input id="radio3" type="radio" name="puntuacion" value="3"  {{ (old('puntuacion',$trailer->puntuacion) == "3") ? "checked" : ""}}><!--
                           --><label for="radio3">★</label><!--
-                          --><input id="radio4" type="radio" name="puntuacion" value="2"><!--
+                          --><input id="radio4" type="radio" name="puntuacion" value="2"  {{ (old('puntuacion',$trailer->puntuacion) == "2") ? "checked" : ""}}><!--
                           --><label for="radio4">★</label><!--
-                          --><input id="radio5" type="radio" name="puntuacion" value="1"><!--
+                          --><input id="radio5" type="radio" name="puntuacion" value="1"  {{ (old('puntuacion',$trailer->puntuacion) == "1") ? "checked" : ""}}><!--
                           --><label for="radio5">★</label>
                         </p>
                       </div>
 
                       <div class="form-group">
                         <label for="title">Titulo de la pelicula</label>
-                        <input name="titulo" type="text" class='form-control' value="{{ old('titulo' ,$trailer->puntuacion) }}">
+                        <input name="titulo" type="text" class='form-control' value="{{ old('titulo' ,$trailer->titulo) }}">
                       </div>
                       <div class="form-group">
                         <label for="url">Link del trailer</label>
@@ -62,7 +65,7 @@
 
                               <div class="input-group mb-3">
                                
-                                  <input  name="portada" class="form-control" id="upload" type="file" value="{{ old('file' ,$trailer->file) }}"   required  onchange="onFileSelected(event)" ></button>
+                                  <input  name="portada" class="form-control" id="upload" type="file" value="{{ old('file' ,$trailer->file) }}"   {!! $requerido !!}  onchange="onFileSelected(event)" ></button>
                                 </div>
                               </div>
 
@@ -75,16 +78,25 @@
                               <div class="form-group">
 
                                 <p class="text-dark text-center" ><strong>Portada</strong></p>
-      
-                                <img class="rounded-3" src="{{ asset(old('file',$trailer->file)) }}" alt="Portada de la imagen" id="uploadfile" width="800" height="800">
+
+
+                                  <img  class="rounded-3" src="{{ asset(old('file',"/storage/".$trailer->portada)) }}" alt="Portada de la imagen" id="uploadfile" width="450px" height="320px" style="object-fit:fill;">
+                               
                                 
                               </div>
                               
-                              <div class="form-acion pt-4">
 
-                                <button class="btn btn-primary">Agregar</button>
-                                <button class="btn btn-danger">Cancelar</button>
+                              <div class="col-12 mt-3">
+
+                                <div class="form-acion">
+
+                                  <button class="btn btn-primary">{{ $btnText }}</button>
+                                  <a class=" btn btn-danger" href="{{route('trailers.index')}}" role="button">Cancelar</a>
+                                </div>
+
                               </div>
+
+                   
 
                             </div>
                           </div>

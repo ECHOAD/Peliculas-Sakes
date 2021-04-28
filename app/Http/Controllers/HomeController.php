@@ -3,17 +3,50 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Trailer;
 
 class HomeController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * Create a new controller instance.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function __invoke(Request $request)
+ 
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
     {
-        return view('Home');
+        return view('home',['trailers' => Trailer::latest()->paginate()]);
     }
+
+
+        
+    public function filtrar( Request $request){
+
+
+        
+
+
+        $titulo= $request->input('titulo');
+
+
+
+      
+      
+
+      $trailers= Trailer::where('titulo', 'LIKE',$titulo.'%')->get();
+
+
+      
+
+      return view('home',['trailers' =>$trailers]);
+
+      
+
+
+  }
 }

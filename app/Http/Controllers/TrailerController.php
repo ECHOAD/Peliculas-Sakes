@@ -10,9 +10,18 @@ use app\Http\Request\SaveTrailerRequest;
 use App\Http\Requests;
 use App\Http\Requests\SaveTrailerRequest as RequestsSaveTrailerRequest;
 use App\Trailer;
+use DB;
+
+use Illuminate\Support\Facades\Storage;
 
 class TrailerController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +32,7 @@ class TrailerController extends Controller
         return view('trailers.index', [
 
 
-            'trilers'=> Trailer::latest()->paginate()
+            'trailers'=> Trailer::latest()->paginate()
 
         ]);
     
@@ -103,8 +112,15 @@ class TrailerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Trailer $trailer)
     {
+
+        
+
+        return view('trailers.edit',[
+
+            'trailer'=>$trailer
+        ]);
         //
     }
 
@@ -115,9 +131,32 @@ class TrailerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update( Trailer $trailer,RequestsSaveTrailerRequest $request)
     {
-        //
+
+
+     
+        if ($request->hasFile('portada')) {
+            Storage::delete($trailer->portada); // If $file is path to old image
+        
+            $trailer->portada = $request->file('portada')->storeAs('public/images/portadas',$request->file('portada')->getClientOriginalName());
+        
+
+           
+
+            
+        
+        $trailer->update($request->except(['portada']));
+
+        return redirect()->route('trailers.index')->with('status','El proyecto fue actualizado exitosamente');
+        }else{
+
+            return redirect()->route('trailers.index')->with('status','No se creo el proyecto, faltaron campos');
+
+
+        }
+     
+
     }
 
     /**
@@ -126,8 +165,44 @@ class TrailerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( Trailer $trailer)
     {
-        //
+
+        $trailer->delete();
+
+        return redirect()->route('trailers.index')->with('status','El proyecto fue Eliminado exitosamente');
+
+        
+        
     }
+
+
+
+
+    
+    public function filtrar( Request $request){
+
+
+        
+
+
+          $titulo= $request->input('titulo');
+
+
+
+        
+        
+
+        $trailers= Trailer::where('titulo', 'LIKE',$titulo.'%')->get();
+
+
+        
+
+        return view('trailers.index',['trailers' =>$trailers]);
+
+        
+
+
+    }
+
 }
