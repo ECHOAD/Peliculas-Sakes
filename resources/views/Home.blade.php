@@ -46,6 +46,18 @@
                                 <div class="cards" data-effect="zoom">
                                     
                                     <button class="cards__save  js-save" type="button">
+
+                                        <button class="venobox btn btn-danger bx bxl-youtube" title="{{ $trailer->titulo }}"
+                                            data-vbtype="video" data-overlay="rgba(0, 0, 0, 0.747)"
+                                            href="{{ $trailer->url }}">
+                                            
+                                            
+
+                                            
+                                        
+                                        </button>
+
+
                                         <i class="fa  fa-bookmark"></i>
                                     </button>
                                     <figure class="cards__image">
@@ -84,21 +96,7 @@
                                                     <p class="text-white">{{ $trailer->descripcion }}</p>
                                                 </div>
 
-                                                <div class="col-12">
-
-                                                    <p class="text-center mt-5">
-                                                        <a class="venobox btn btn-danger" title="{{ $trailer->titulo }}"
-                                                            data-vbtype="video" data-overlay="rgba(0, 0, 0, 0.747)"
-                                                            href="{{ $trailer->url }}">
-                                                            
-                                                            <i class='bx bxl-youtube'></i>
-
-                                                            Trailer
-                                                        
-                                                        </a>
-                                                    </p>
-
-                                                </div>
+                                          
 
 
 

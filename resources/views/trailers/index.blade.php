@@ -103,7 +103,7 @@
                         @forelse ( $trailers as $trailer )
 
                             <div class=" offset-2 col-8  col-md-3 m4 m-md-5 m-lg-0 pt-4">
-                                <h4 class="titulo">{{ $trailer->titulo }} | ★{{ $trailer->puntuacion }}</label> </h1>
+                                <h5 class="titulo">{{ $trailer->titulo }} | ★{{ $trailer->puntuacion }}</h5>
 
                                     <div class="card">
 

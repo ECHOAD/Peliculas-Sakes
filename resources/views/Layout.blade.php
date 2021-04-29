@@ -16,8 +16,15 @@
    
 
     
+    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" >
 
-    <title>@yield('title','SAKE Peliculas')</title>
+    
+    <title>
+      
+       
+        @yield('title','SAKE Peliculas')
+    
+    </title>
 
 
     <link rel="stylesheet" href="{{ asset('css/venobox.css') }}" type="text/css" media="screen" />
