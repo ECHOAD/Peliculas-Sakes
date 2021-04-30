@@ -36,13 +36,13 @@
 
                 @forelse ( $trailers as $trailer )
 
-                    <div class="col-12 col-md-6 col-lg-3 mt-5">
+                    <div class="offset-2  col-8 offset-md-0  col-md-6 col-lg-3 mt-5">
 
                         <div class="container">
 
                             <div class="row">
                                 <!-- BEGIN: cards -->
-                                <h5 class="text-white">{{ $trailer->titulo }}|★{{ $trailer->puntuacion }} </h5>
+                                <p class="text-white ">{{ $trailer->titulo }}|★{{ $trailer->puntuacion }} </p>
                                 <div class="cards" data-effect="zoom">
                                     
                                     <button class="cards__save  js-save" type="button">
