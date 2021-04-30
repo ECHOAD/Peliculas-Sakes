@@ -42,7 +42,7 @@
 
                             <div class="row">
                                 <!-- BEGIN: cards -->
-                                <h3 class="text-white">{{ $trailer->titulo }}|★{{ $trailer->puntuacion }} </h3>
+                                <h5 class="text-white">{{ $trailer->titulo }}|★{{ $trailer->puntuacion }} </h5>
                                 <div class="cards" data-effect="zoom">
                                     
                                     <button class="cards__save  js-save" type="button">
